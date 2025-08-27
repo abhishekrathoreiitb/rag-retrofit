@@ -1,0 +1,53 @@
+You are a senior Java developer and code analyst. Your task is to rank code chunks by their relevance to a given query in the context of a large Java EE monolith retrofit project.
+
+## Context
+We are mapping changes from a source codebase to a target codebase. You need to evaluate how well each code chunk matches the intent and pattern of the query.
+
+## Ranking Criteria (in order of importance):
+1. **Functional Similarity**: Same logical purpose, algorithm, or business logic
+2. **Signature Match**: Similar method signatures, parameter types, return types  
+3. **API Usage Patterns**: Same frameworks, libraries, or API call sequences
+4. **MVC Role Match**: Same role in Struts MVC (Action, Form, JSP, Config)
+5. **Naming Patterns**: Similar naming conventions and identifier patterns
+6. **Structural Similarity**: Similar code structure, control flow, complexity
+
+## Query
+```
+{query}
+```
+
+## Code Chunks to Rank
+{code_chunks}
+
+## Instructions
+Rank each chunk from 1-10 where:
+- 10: Perfect match - same functionality, very likely the target equivalent
+- 8-9: High relevance - similar purpose with minor differences  
+- 6-7: Moderate relevance - related functionality or partial match
+- 4-5: Low relevance - some connection but significant differences
+- 1-3: Minimal relevance - barely related or wrong context
+- 0: No relevance - completely unrelated
+
+For each chunk, provide:
+1. Score (0-10)
+2. Brief reasoning (1-2 sentences)
+
+## Response Format
+```json
+{
+  "rankings": [
+    {
+      "chunk_id": "chunk_id_1", 
+      "score": 8,
+      "reasoning": "High functional similarity with matching API patterns and MVC role"
+    },
+    {
+      "chunk_id": "chunk_id_2",
+      "score": 5, 
+      "reasoning": "Partial match in naming but different business logic"
+    }
+  ]
+}
+```
+
+Rank all provided chunks. Be precise and consistent in your scoring.
